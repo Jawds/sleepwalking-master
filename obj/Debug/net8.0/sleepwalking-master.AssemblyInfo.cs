@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("sleepwalking-master")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be2e14461c6036373039e8d6fef67d5507074574")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53d98277e03a008450be19c117f7941b2031bccf")]
 [assembly: System.Reflection.AssemblyProductAttribute("sleepwalking-master")]
 [assembly: System.Reflection.AssemblyTitleAttribute("sleepwalking-master")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

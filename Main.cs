@@ -1,6 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Microsoft.VisualBasic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 
 namespace sleepwalking_master;
 
@@ -11,6 +13,8 @@ public class Main : Game
 
     public const int ViewportWidth = 480;
     public const int ViewportHeight = 480;
+
+    private Frog playerFrog;
 
     public Main()
     {
@@ -33,6 +37,11 @@ public class Main : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+        var greenTexture = new Texture2D(GraphicsDevice, 1, 1);
+        greenTexture.SetData(new Color[] { Color.Green });
+
+        playerFrog = new Frog(greenTexture, ViewportWidth, (float)ViewportWidth / 2 - Frog.Width, (float)ViewportHeight / 2 - Frog.Height);
+
         // TODO: use this.Content to load your game content here
     }
 
@@ -40,6 +49,19 @@ public class Main : Game
     {
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
+
+        var keyboardState = Keyboard.GetState();
+        var gamePadState = GamePad.GetState(PlayerIndex.One);
+
+        if (keyboardState.IsKeyDown(Keys.A) || gamePadState.DPad.Left == ButtonState.Pressed)
+        {
+            playerFrog.MoveLeft();
+        }
+
+        if (keyboardState.IsKeyDown(Keys.D) || gamePadState.DPad.Right == ButtonState.Pressed)
+        {
+            playerFrog.MoveRight();
+        }
 
         // TODO: Add your update logic here
 
@@ -50,7 +72,13 @@ public class Main : Game
     {
         GraphicsDevice.Clear(Color.Blue);
 
-        // TODO: Add your drawing code here
+        _spriteBatch.Begin();
+
+        // currently a placeholder for the player
+        _spriteBatch.Draw(playerFrog.GetTexture(), new Rectangle((int)playerFrog.GetXPosition(), (int)playerFrog.GetYPosition(), Frog.Width, Frog.Height), Color.White);
+
+        _spriteBatch.End();
+
 
         base.Draw(gameTime);
     }

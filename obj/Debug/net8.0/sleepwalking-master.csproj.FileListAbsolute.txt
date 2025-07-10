@@ -30,3 +30,4 @@ C:\C\sleepwalking-master\obj\Debug\net8.0\refint\sleepwalking-master.dll
 C:\C\sleepwalking-master\obj\Debug\net8.0\sleepwalking-master.pdb
 C:\C\sleepwalking-master\obj\Debug\net8.0\sleepwalking-master.genruntimeconfig.cache
 C:\C\sleepwalking-master\obj\Debug\net8.0\ref\sleepwalking-master.dll
+C:\C\sleepwalking-master\bin\Debug\net8.0\Content\audio\question.xnb
