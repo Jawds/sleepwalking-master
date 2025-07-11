@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace sleepwalking_master
@@ -9,6 +8,7 @@ namespace sleepwalking_master
         private readonly Texture2D frogTexture;
 
         private readonly int ViewportWidth;
+        private readonly int ViewportHeight;
 
         private float xPosition;
         private float yPosition;
@@ -20,13 +20,17 @@ namespace sleepwalking_master
 
         public float speed = 5;
 
-        public Frog(Texture2D texture,int ViewportWidth, float xPosition, float yPosition)
+        public Frog(Texture2D texture, int ViewportWidth, int ViewportHeight, float xPosition, float yPosition)
         {
             frogTexture = texture;
             this.ViewportWidth = ViewportWidth;
+            this.ViewportHeight = ViewportHeight;
+            
+            this.xPosition = ViewportWidth / 2 - Width;
+            this.yPosition = ViewportHeight / 2 - Height;
 
-            previousXPosition = xPosition;
-            previousYPosition = yPosition;
+            this.previousXPosition = this.xPosition;
+            this.previousYPosition = this.yPosition;
         }
 
         public void MoveLeft()

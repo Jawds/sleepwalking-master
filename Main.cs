@@ -40,7 +40,7 @@ public class Main : Game
         var greenTexture = new Texture2D(GraphicsDevice, 1, 1);
         greenTexture.SetData(new Color[] { Color.Green });
 
-        playerFrog = new Frog(greenTexture, ViewportWidth, (float)ViewportWidth / 2 - Frog.Width, (float)ViewportHeight / 2 - Frog.Height);
+        playerFrog = new Frog(greenTexture, ViewportWidth, ViewportHeight, ViewportWidth / 2 - Frog.Width, ViewportHeight / 2 - Frog.Height);
 
         // TODO: use this.Content to load your game content here
     }
@@ -75,6 +75,7 @@ public class Main : Game
         _spriteBatch.Begin();
 
         // currently a placeholder for the player
+
         _spriteBatch.Draw(playerFrog.GetTexture(), new Rectangle((int)playerFrog.GetXPosition(), (int)playerFrog.GetYPosition(), Frog.Width, Frog.Height), Color.White);
 
         _spriteBatch.End();
