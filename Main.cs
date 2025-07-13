@@ -14,6 +14,7 @@ public class Main : Game
     public const int ViewportWidth = 480;
     public const int ViewportHeight = 480;
 
+    private SpriteFont font;
     private Frog playerFrog;
 
     public Main()
@@ -41,7 +42,7 @@ public class Main : Game
         greenTexture.SetData(new Color[] { Color.Green });
 
         playerFrog = new Frog(greenTexture, ViewportWidth, ViewportHeight, ViewportWidth / 2 - Frog.Width, ViewportHeight / 2 - Frog.Height);
-
+        font = Content.Load<SpriteFont>("font");
         // TODO: use this.Content to load your game content here
     }
 
@@ -74,12 +75,11 @@ public class Main : Game
 
         _spriteBatch.Begin();
 
+        _spriteBatch.DrawString(font, playerFrog.GetXPosition().ToString(), new Vector2(ViewportWidth / 2, ViewportHeight / 2), Color.White);
         // currently a placeholder for the player
-
         _spriteBatch.Draw(playerFrog.GetTexture(), new Rectangle((int)playerFrog.GetXPosition(), (int)playerFrog.GetYPosition(), Frog.Width, Frog.Height), Color.White);
 
         _spriteBatch.End();
-
 
         base.Draw(gameTime);
     }

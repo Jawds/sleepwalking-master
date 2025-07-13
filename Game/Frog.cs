@@ -15,8 +15,8 @@ namespace sleepwalking_master
         private float previousXPosition;
         private float previousYPosition;
 
-        public const int Height = 20;
-        public const int Width = 20;
+        public const int Height = 30;
+        public const int Width = 30;
 
         public float speed = 5;
 
@@ -26,8 +26,8 @@ namespace sleepwalking_master
             this.ViewportWidth = ViewportWidth;
             this.ViewportHeight = ViewportHeight;
             
-            this.xPosition = ViewportWidth / 2 - Width;
-            this.yPosition = ViewportHeight / 2 - Height;
+            this.xPosition = ViewportWidth / 2 - Width / 2;
+            this.yPosition = ViewportHeight / 2 - Height / 2;
 
             this.previousXPosition = this.xPosition;
             this.previousYPosition = this.yPosition;
@@ -37,8 +37,10 @@ namespace sleepwalking_master
         {
             previousXPosition = xPosition;
 
-            xPosition -= speed;
-            
+            if (xPosition > 0)
+            {
+                xPosition -= speed;
+            }
         }
 
         public void MoveRight()

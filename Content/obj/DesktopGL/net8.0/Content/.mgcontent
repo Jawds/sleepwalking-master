@@ -4,7 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/C/sleepwalking-master/Content/audio/question.wav</File>
+    <File>C:/C/sleepwalking-master/Content/font.spritefont</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

@@ -1,2 +1,2 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"c:/C/sleepwalking-master/Content/audio/question.wav","c:/C/sleepwalking-master/Content/bin/DesktopGL/audio/question.xnb","SoundEffectProcessor","SoundEffectContent",74782,74685,1.0601466
+"c:/C/sleepwalking-master/Content/font.spritefont","c:/C/sleepwalking-master/Content/bin/DesktopGL/font.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21529,0.1890153
