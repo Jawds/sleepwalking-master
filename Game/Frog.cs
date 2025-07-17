@@ -10,46 +10,45 @@ namespace sleepwalking_master
         private readonly int ViewportWidth;
         private readonly int ViewportHeight;
 
-        private float xPosition;
-        private float yPosition;
-        private float previousXPosition;
-        private float previousYPosition;
+        public Vector2 Position;
+        public Vector2 previousPosition;
+
+        public Vector2 Velocity;
 
         public const int Height = 30;
         public const int Width = 30;
 
         public float speed = 5;
 
-        public Frog(Texture2D texture, int ViewportWidth, int ViewportHeight, float xPosition, float yPosition)
+        public Frog(Texture2D texture, Vector2 Position)
         {
             frogTexture = texture;
-            this.ViewportWidth = ViewportWidth;
-            this.ViewportHeight = ViewportHeight;
-            
-            this.xPosition = ViewportWidth / 2 - Width / 2;
-            this.yPosition = ViewportHeight / 2 - Height / 2;
 
-            this.previousXPosition = this.xPosition;
-            this.previousYPosition = this.yPosition;
+            this.Position.X = ViewportWidth / 2 - Width / 2;
+            this.Position.Y = ViewportHeight / 2 - Height / 2;
+
+            this.previousPosition = this.Position;
+
+            Velocity = Position;
         }
 
         public void MoveLeft()
         {
-            previousXPosition = xPosition;
+            previousPosition = Position;
 
-            if (xPosition > 0)
+            if (Position.X > 0)
             {
-                xPosition -= speed;
+                Position.X -= speed;
             }
         }
 
         public void MoveRight()
         {
-            previousXPosition = xPosition;
+            previousPosition = Position;
 
-            if (xPosition < ViewportWidth - Width)
+            if (Position.X < ViewportWidth - Width)
             {
-                xPosition += speed;
+                Position.X += speed;
             }
         }
 
@@ -58,24 +57,14 @@ namespace sleepwalking_master
             return frogTexture;
         }
 
-        public float GetXPosition()
+        public Vector2 GetPosition()
         {
-            return xPosition;
+            return Position;
         }
 
-        public float GetYPosition()
+        public Vector2 GetPreviousPosition()
         {
-            return yPosition;
-        }
-
-        public float GetPreviousXPosition()
-        {
-            return previousXPosition;
-        }
-
-        public float GetPreviousYPosition()
-        {
-            return previousYPosition;
+            return previousPosition;
         }
     }
 }
